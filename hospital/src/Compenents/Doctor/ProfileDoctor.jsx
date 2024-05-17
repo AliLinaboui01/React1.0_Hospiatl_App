@@ -48,7 +48,7 @@ function ProfileDoctor() {
         <div class="lg:w-[88%] md:w-[80%] sm:w-[88%] xs:w-full mx-auto shadow-2xl p-4 rounded-xl h-fit self-center dark:bg-gray-800/40">
           <div class="">
             <h1 class="lg:text-3xl md:text-2xl sm:text-xl xs:text-xl font-serif font-extrabold mb-2 dark:text-white">
-              Profile {doctorLogin.userName}
+              Profile Dr.{doctorLogin.firstName} - {doctorLogin.lastName}
             </h1>
             <h2 class="text-grey text-xl  mb-4 dark:text-gray-400">
             speciality : {doctorLogin.speciality}

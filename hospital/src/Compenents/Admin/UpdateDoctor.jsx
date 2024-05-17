@@ -116,6 +116,7 @@ function UpdateDoctor() {
                 <p className="mt-2 text-lg leading-8 text-gray-600">
                   Aute magna irure deserunt veniam aliqua magna enim voluptate.
                 </p>
+                <img class="w-32 h-32 rounded-full mx-auto" src={state.image} alt="Profile picture"/>
               </div>
 
               <form
