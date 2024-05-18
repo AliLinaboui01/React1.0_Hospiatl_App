@@ -28,11 +28,12 @@ export default function Dashboorduser() {
           <div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
             <div class="sm:max-w-lg">
               <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Summer styles are finally here
+              Your Trusted Healthcare Partner
               </h1>
               <p class="mt-4 text-xl text-gray-500">
-                This year, our new summer collection will shelter you from the
-                harsh elements of a world that doesn't care if you live or die.
+              Experience the Care You Deserve
+
+At HosWassiss, we are committed to providing exceptional healthcare services to our community. With a team of dedicated professionals and state-of-the-art facilities, we strive to ensure your well-being and comfort at every step of your journey towards better health.
               </p>
             </div>
             <div>

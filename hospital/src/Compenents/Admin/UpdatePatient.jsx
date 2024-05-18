@@ -17,10 +17,9 @@ function UpdatePatient() {
       email: "",
       password: "",
       gender: "M",
-      dateHiring: new Date().toISOString().split("T")[0],
+      birthDate: new Date().toISOString().split("T")[0],
       telephone: "",
       address: "",
-      speciality: "",
       image: null,
     };
   

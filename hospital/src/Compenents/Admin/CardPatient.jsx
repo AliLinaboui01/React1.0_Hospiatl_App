@@ -7,13 +7,13 @@ function CardPatient({ patient }) {
   const deletePatientById = async (e) =>{
     e.preventDefault()
     console.log("patient",patient.id)
-     if(window.confirm("are you sure you want to delete this Doctor"))
+     if(window.confirm("are you sure you want to delete this Patient"))
       {
 
       
         try {
           await axios.delete(`http://localhost:5299/api/patient/${patient.id}`);
-          navigate('/allpatients')
+          navigate('/alldoctors')
         } catch (error) {
           console.log("Error deleting Patient:", error);
         }

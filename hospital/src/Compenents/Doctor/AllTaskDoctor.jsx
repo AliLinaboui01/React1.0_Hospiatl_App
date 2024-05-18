@@ -1,69 +1,46 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Task from "./Task";
+import Cookies from "js-cookie"; // Importing js-cookie library
 
 function AllTaskDoctor() {
   const [allTask, setAllTask] = useState([]);
-
-  const fetchData = () => {
-    let data = [
-      {
-        id: 1,
-        rdvDate: "2024/05/02",
-        rdvdescreption: "reson 1",
-        rdvdetails: "rdvdetails",
-        patientName: "hamda chroukat",
-      },
-
-      {
-        id: 2,
-        rdvDate: "2024/05/02",
-        rdvdescreption: "reson 2",
-        rdvdetails: "rdvdetails 2",
-        patientName: "hamda chroukat",
-      },
-
-      {
-        id: 3,
-        rdvDate: "2024/05/02",
-        rdvdescreption: "reson 3",
-        rdvdetails: "rdvdetails 3",
-        patientName: "hamda chroukat",
-      },
-
-      {
-        id: 4,
-        rdvDate: "2024/05/02",
-        rdvdescreption: "reson 4",
-        rdvdetails: "rdvdetails 4",
-        patientName: "hamda chroukat",
-      },
-    ];
-
-    // after we get responce from data base we set data in our state Rdv
-    setAllTask(data);
-  };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-//   useEffect(() => {}, [allTask]);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5299/api/Rdv/doctors/${Cookies.get("idUser")}`);
+      // Format date and time before setting the data
+      const formattedData = response.data.map(task => ({
+        ...task,
+        appointmentDateTime: formatDate(task.appointmentDateTime)
+      }));
+      setAllTask(formattedData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
+  // Function to format date and time
+  const formatDate = (dateTimeString) => {
+    const dateTime = new Date(dateTimeString);
+    const date = dateTime.toLocaleDateString(); // Format date as per locale
+    const time = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Format time
+    return `${date} AT ${time}`;
+  };
   const displayRdv = () => {
-    return allTask.map(() => {
-      return <Task ></Task>;
+    return allTask.map((task) => {
+      return <Task key={task.id} task={task}></Task>;
     });
   };
 
   return (
     <div className="flex flex-wrap m-auto w-full">
-      <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
-        {/* this section is a rvd related to a doctor so we need to get info from 
-      data base  */}
-
+      <div className="grid mt-8 gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
         {displayRdv()}
-
-        {/* end for rdv patient  */}
       </div>
     </div>
   );

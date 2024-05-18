@@ -26,7 +26,9 @@ function Subscribe() {
             >
               <circle cx="1" cy="1" r="1" />
             </svg>
-            Join us in Denver from June 7 – 9 to see what’s coming next.
+
+            Discover the future of healthcare at GeneriCon 2023 in Denver from June 7 – 9. Register now to be part of this transformative event and witness the latest innovations in the medical field.
+
           </p>
           <a
             href="#"
