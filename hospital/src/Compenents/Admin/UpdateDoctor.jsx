@@ -7,7 +7,7 @@ import NavBarAdmin from "./NavBarAdmin";
 function UpdateDoctor() {
   const { id } = useParams();
   const navigate = useNavigate();
-  // Initial form state
+  
   let initState = {
     firstName: "",
     lastName: "",
@@ -22,7 +22,6 @@ function UpdateDoctor() {
     image: null,
   };
 
-  // Reducer function to manage form state
   const reducer = (state, action) => {
     switch (action.type) {
       case "input":
@@ -36,10 +35,8 @@ function UpdateDoctor() {
     }
   };
 
-  // Use reducer to manage form state
   const [state, dispatch] = useReducer(reducer, initState);
 
-  // Fetch doctor data when component mounts
   useEffect(() => {
     const fetchDoctor = async () => {
       try {
@@ -63,18 +60,16 @@ function UpdateDoctor() {
 
     fetchDoctor();
   }, [id]);
-  // Handle form input change
+
   const handelChange = (e) => {
     const value = e.target.type === "file" ? e.target.files[0] : e.target.value;
     dispatch({ type: "input", field: e.target.name, payload: value });
   };
 
-  // Handle form reset
   const handelReset = () => {
     dispatch({ type: "reset" });
   };
 
-  // Handle form submission
   const handelSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -86,7 +81,7 @@ function UpdateDoctor() {
 
       const response = await axios.put(
         `http://localhost:5299/api/doctor/${id}`,
-        state,
+        formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
         }
@@ -101,9 +96,7 @@ function UpdateDoctor() {
 
   return (
     <div>
-      <>
-        <NavBarAdmin></NavBarAdmin>
-      </>
+      <NavBarAdmin />
 
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="relative flex flex-col m-3 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
@@ -116,7 +109,7 @@ function UpdateDoctor() {
                 <p className="mt-2 text-lg leading-8 text-gray-600">
                   Aute magna irure deserunt veniam aliqua magna enim voluptate.
                 </p>
-                <img class="w-32 h-32 rounded-full mx-auto" src={state.image} alt="Profile picture"/>
+                <img className="w-32 h-32 rounded-full mx-auto" src={state.image} alt="Profile picture"/>
               </div>
 
               <form
@@ -198,7 +191,7 @@ function UpdateDoctor() {
                         name="telephone"
                         value={state.telephone}
                         id="phone"
-                        autoComplete="email"
+                        autoComplete="tel"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         required
                         onChange={handelChange}
@@ -239,7 +232,7 @@ function UpdateDoctor() {
                         name="password"
                         id="password"
                         value={state.password}
-                        autoComplete="password"
+                        autoComplete="new-password"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         required
                         onChange={handelChange}
@@ -249,20 +242,20 @@ function UpdateDoctor() {
 
                   <div className="mt-2.5">
                     <label
-                      htmlFor="email"
+                      htmlFor="speciality"
                       className="block text-sm font-semibold leading-6 text-gray-900"
                     >
-                      spécialité
+                      Spécialité
                     </label>
                     <div className="mt-2.5">
                       <input
                         type="text"
                         name="speciality"
                         value={state.speciality}
-                        id="address"
-                        autoComplete="address"
+                        id="speciality"
+                        autoComplete="off"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        required
+                        disabled
                         onChange={handelChange}
                       />
                     </div>
@@ -271,54 +264,57 @@ function UpdateDoctor() {
                   <div className="flex">
                     <div className="flex items-center mx-2 gap-x-3">
                       <input
-                        id="push-everything"
+                        id="gender-male"
                         name="gender"
                         checked={state.gender === "M"}
                         value="M"
                         type="radio"
+                        disabled
                         onChange={handelChange}
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label
-                        htmlFor="push-everything"
+                        htmlFor="gender-male"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Homme
                       </label>
                     </div>
-                    <div className="flex items-center  mx-2 gap-x-3">
+                    <div className="flex items-center mx-2 gap-x-3">
                       <input
-                        id="push-email"
+                        id="gender-female"
                         name="gender"
                         value="F"
                         checked={state.gender === "F"}
                         onChange={handelChange}
                         type="radio"
+                        disabled
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label
-                        htmlFor="push-email"
+                        htmlFor="gender-female"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Famme
+                        Femme
                       </label>
                     </div>
                   </div>
 
                   <div className="sm:col-span-2">
                     <label
-                      htmlFor="email"
+                      htmlFor="address"
                       className="block text-sm font-semibold leading-6 text-gray-900"
                     >
-                      address
+                      Address
                     </label>
                     <div className="mt-2.5">
                       <input
                         type="text"
                         name="address"
                         value={state.address}
-                        id="specialite"
-                        autoComplete="address"
+                        id="address"
+                        
+                        autoComplete="street-address"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         required
                         onChange={handelChange}
@@ -328,27 +324,28 @@ function UpdateDoctor() {
 
                   <div className="sm:col-span-2">
                     <label
-                      htmlFor="email"
+                      htmlFor="dateHiring"
                       className="block text-sm font-semibold leading-6 text-gray-900"
                     >
-                      date d'hiring
+                      Date d'hiring
                     </label>
                     <div className="mt-2.5">
                       <input
-                        value={state.dateHiring}
-                        type="date"
+                        type="text"
                         name="dateHiring"
-                        id="datab"
+                        value={state.dateHiring}
+                        id="dateHiring"
                         onChange={handelChange}
-                        autoComplete="email"
+                        autoComplete="off"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         required
+                        disabled
                       />
                     </div>
                   </div>
                   <div className="sm:col-span-2">
                     <label
-                      htmlFor="email"
+                      htmlFor="image"
                       className="block text-sm font-semibold leading-6 text-gray-900"
                     >
                       Image
@@ -357,11 +354,10 @@ function UpdateDoctor() {
                       <input
                         type="file"
                         name="image"
-                        id="databd"
+                        id="image"
                         onChange={handelChange}
-                        autoComplete="email"
+                        autoComplete="off"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        required
                       />
                     </div>
                   </div>
@@ -383,8 +379,6 @@ function UpdateDoctor() {
                 </div>
               </form>
             </div>
-
-            {/* end  */}
           </div>
           <div className="relative">
             <img

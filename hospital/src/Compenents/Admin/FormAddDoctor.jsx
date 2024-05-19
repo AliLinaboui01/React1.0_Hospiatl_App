@@ -101,7 +101,7 @@ function FormAddDoctor() {
                     <div className="mt-2.5">
                       <input
                         type="text"
-                        name="FirstName"
+                        name="firstName"
                         value={state.firstName}
                         id="fname"
                         autoComplete="given-name"
@@ -121,7 +121,7 @@ function FormAddDoctor() {
                     <div className="mt-2.5">
                       <input
                         type="text"
-                        name="LastName"
+                        name="lastName"
                         value={state.lastName}
                         id="lname"
                         autoComplete="family-name"
@@ -142,7 +142,7 @@ function FormAddDoctor() {
                       <input
                         type="text"
                         value={state.userName}
-                        name="UserName"
+                        name="userName"
                         id="username"
                         autoComplete="organization"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -161,7 +161,7 @@ function FormAddDoctor() {
                     <div className="mt-2.5">
                       <input
                         type="number"
-                        name="Telephone"
+                        name="telephone"
                         value={state.telephone}
                         id="phone"
                         autoComplete="email"
@@ -181,7 +181,7 @@ function FormAddDoctor() {
                     <div className="mt-2.5">
                       <input
                         type="email"
-                        name="Email"
+                        name="email"
                         value={state.email}
                         id="email"
                         autoComplete="email"
@@ -202,7 +202,7 @@ function FormAddDoctor() {
                     <div className="mt-2.5">
                       <input
                         type="password"
-                        name="Password"
+                        name="password"
                         id="password"
                         value={state.password}
                         autoComplete="password"
@@ -223,7 +223,7 @@ function FormAddDoctor() {
                     <div className="mt-2.5">
                       <input
                         type="text"
-                        name="Speciality"
+                        name="speciality"
                         value={state.speciality}
                         id="address"
                         autoComplete="address"
@@ -281,7 +281,7 @@ function FormAddDoctor() {
                     <div className="mt-2.5">
                       <input
                         type="text"
-                        name="Address"
+                        name="address"
                         value={state.address}
                         id="specialite"
                         autoComplete="address"
@@ -303,7 +303,7 @@ function FormAddDoctor() {
                       <input
                         value={state.dateHiring}
                         type="date"
-                        name="dateb"
+                        name="dateHiring"
                         id="datab"
                         onChange={handelChange}
                         autoComplete="email"
@@ -322,7 +322,7 @@ function FormAddDoctor() {
                     <div className="mt-2.5">
                       <input
                         type="file"
-                        name="Image"
+                        name="image"
                         id="databd"
                         onChange={handelChange}
                         autoComplete="email"

@@ -14,14 +14,13 @@ function ProfileUser() {
     console.log(id);
     if (id) {
       setidPatient(id);
-      if(Cookies.get('roleUser')!=="Patient")
-        {
-          navigate('/unauth')
-        }
+      if (Cookies.get("roleUser") !== "Patient") {
+        navigate("/unauth");
+      }
     } else {
-      console.log("role user",Cookies.get('roleUser'))
-    
-      navigate('/unauth')
+      console.log("role user", Cookies.get("roleUser"));
+
+      navigate("/unauth");
       // navigate("/unauth");
     }
   }, []);
@@ -59,9 +58,11 @@ function ProfileUser() {
               </h2>
               <form>
                 <div
-                                style={{ backgroundImage: `url(https://img.freepik.com/free-psd/interior-luxury-hospital-hall-generative-ai_587448-2078.jpg?t=st=1715801870~exp=1715805470~hmac=a9a436f4a857946203352d6bc39a57ca12aa92db612d15824d50b59ed3117a7c&w=1380)` }}
-
-                class="w-full rounded-sm g-[url('https://images.unsplash.com/photo-1449844908441-8829872d2607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxob21lfGVufDB8MHx8fDE3MTA0MDE1NDZ8MA&ixlib=rb-4.0.3&q=80&w=1080')] bg-cover bg-center bg-no-repeat items-center">
+                  style={{
+                    backgroundImage: `url(https://img.freepik.com/free-psd/interior-luxury-hospital-hall-generative-ai_587448-2078.jpg?t=st=1715801870~exp=1715805470~hmac=a9a436f4a857946203352d6bc39a57ca12aa92db612d15824d50b59ed3117a7c&w=1380)`,
+                  }}
+                  class="w-full rounded-sm g-[url('https://images.unsplash.com/photo-1449844908441-8829872d2607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxob21lfGVufDB8MHx8fDE3MTA0MDE1NDZ8MA&ixlib=rb-4.0.3&q=80&w=1080')] bg-cover bg-center bg-no-repeat items-center"
+                >
                   <div
                     class="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full  bg-cover bg-center bg-no-repeat"
                     style={{ backgroundImage: `url(${PatientLogin.image})` }}

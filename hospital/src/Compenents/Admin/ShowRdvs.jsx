@@ -17,7 +17,7 @@ function ShowRdvs({rdv}) {
                 <h1 class="text-lg">{rdv.description}</h1>
             </div>
 
-            <div class="flex flex-col">
+            {/* <div class="flex flex-col">
                 <h4 class="text-xs">Date Quittance</h4>
                 <h1 class="text-md">11/08/2022</h1>
             </div>
@@ -25,7 +25,7 @@ function ShowRdvs({rdv}) {
             <div class="flex flex-col">
                 <h4 class="text-xs">N° Quittance</h4>
                 <h1 class="text-md font-thin">QUITTANCE-22-2022-8-7488a</h1>
-            </div>
+            </div> */}
 
         </div>
 

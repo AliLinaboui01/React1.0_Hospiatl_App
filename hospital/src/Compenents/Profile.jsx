@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBarAdmin from "./Admin/NavBarAdmin";
+import axios from "axios";
+import Cookies from "js-cookie"; // Importing js-cookie library
 
 function Profile() {
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    telephone: "",
+    address: "",
+    gender: "",
+    image: "",
+  });
+
+  useEffect(() => {
+    // Fetch user data from API
+    axios
+      .get(`http://localhost:5299/api/account/${Cookies.get("idUser")}`)
+      .then((response) => {
+        setUserData(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  }, []);
   return (
     <>
       {" "}
@@ -12,14 +36,19 @@ function Profile() {
             <div class="lg:w-[88%] md:w-[80%] sm:w-[88%] xs:w-full mx-auto shadow-2xl p-4 rounded-xl h-fit self-center dark:bg-gray-800/40">
               <div class="">
                 <h1 class="lg:text-3xl md:text-2xl sm:text-xl xs:text-xl font-serif font-extrabold mb-2 dark:text-white">
-                  Profile
+                  Admin Profile
                 </h1>
                 <h2 class="text-grey text-sm mb-4 dark:text-gray-400">
                   Create Profile
                 </h2>
                 <form>
                   <div class="w-full rounded-sm bg-[url('https://images.unsplash.com/photo-1449844908441-8829872d2607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxob21lfGVufDB8MHx8fDE3MTA0MDE1NDZ8MA&ixlib=rb-4.0.3&q=80&w=1080')] bg-cover bg-center bg-no-repeat items-center">
-                    <div class="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full bg-[url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw4fHxwcm9maWxlfGVufDB8MHx8fDE3MTEwMDM0MjN8MA&ixlib=rb-4.0.3&q=80&w=1080')] bg-cover bg-center bg-no-repeat">
+                    <div
+                      style={{
+                        backgroundImage: `${userData.image}`,
+                      }}
+                      class="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full  bg-cover bg-center bg-no-repeat"
+                    >
                       <div class="bg-white/90 rounded-full w-6 h-6 text-center ml-28 mt-4">
                         <input
                           type="file"
@@ -103,9 +132,11 @@ function Profile() {
                         First Name
                       </label>
                       <input
+                        value={userData.firstName}
                         type="text"
                         class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                         placeholder="First Name"
+                        disabled
                       />
                     </div>
                     <div class="w-full  mb-4 lg:mt-6">
@@ -113,6 +144,8 @@ function Profile() {
                         Last Name
                       </label>
                       <input
+                        disabled
+                        value={userData.lastName}
                         type="text"
                         class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                         placeholder="Last Name"
@@ -124,16 +157,19 @@ function Profile() {
                     <div class="w-full">
                       <h3 class="dark:text-gray-300 mb-2">Sex</h3>
                       <input
+                        disabled
+                        value={userData.gender}
                         type="text"
                         class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                         placeholder="Last Name"
-                        value="M"
                       />
                     </div>
                     <div class="w-full">
-                      <h3 class="dark:text-gray-300 mb-2">Date Of Birth</h3>
+                      <h3 class="dark:text-gray-300 mb-2">Telephone</h3>
                       <input
-                        type="date"
+                        disabled
+                        value={userData.telephone}
+                        type="text"
                         class="text-grey p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                       />
                     </div>
@@ -143,16 +179,11 @@ function Profile() {
                     <div class="w-full">
                       <h3 class="dark:text-gray-300 mb-2">Email</h3>
                       <input
+                        disabled
+                        value={userData.email}
                         type="text"
                         class="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                         placeholder="Last Name"
-                      />
-                    </div>
-                    <div class="w-full">
-                      <h3 class="dark:text-gray-300 mb-2">Password</h3>
-                      <input
-                        type="text"
-                        class="text-grey p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
                       />
                     </div>
                   </div>

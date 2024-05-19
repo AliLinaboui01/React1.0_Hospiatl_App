@@ -10,7 +10,7 @@ function Footer() {
                 <img class="w-auto h-7" src="https://merakiui.com/images/full-logo.svg" alt=""/>
             </a>
 
-            <p class="max-w-md mx-auto mt-4 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p class="max-w-md mx-auto mt-4 text-gray-500 dark:text-gray-400">By Hamza Akkaoui & Ali Linaboui</p>
 
             <div class="flex flex-col mt-4 sm:flex-row sm:items-center sm:justify-center">
                 <button class="flex items-center justify-center order-1 w-full px-2 py-2 mt-3 text-sm tracking-wide text-gray-600 capitalize transition-colors duration-300 transform border rounded-md sm:mx-2 dark:border-gray-400 dark:text-gray-300 sm:mt-0 sm:w-auto hover:bg-gray-50 focus:outline-none focus:ring dark:hover:bg-gray-800 focus:ring-gray-300 focus:ring-opacity-40">

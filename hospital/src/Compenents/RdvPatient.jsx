@@ -1,6 +1,6 @@
 import React from 'react'
 
-function RdvPatient({rdvdate,rdvdescreption,rdvdetails}) {
+function RdvPatient({rdvdate,rdvdescreption,rdvdetails,doctorName}) {
   return (
     <div>
         <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
@@ -9,7 +9,7 @@ function RdvPatient({rdvdate,rdvdescreption,rdvdetails}) {
         <p class="text-2xl font-bold"> {rdvdate}</p>
         </div>
         <div>
-        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Event Name</div>
+        <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Rdv With Dr.{doctorName}</div>
         <p class="mt-2 text-gray-500">{rdvdescreption}</p>
         <p class="mt-2 text-gray-500">{rdvdetails}</p>
         </div>

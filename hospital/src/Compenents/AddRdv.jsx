@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import LodingPage from "./LodingPage";
 import axios from "axios";
 import Cookies from "js-cookie";
+import DataNotFound from "./DataNotFound";
 
 function AddRdv() {
   const [PatientLogin, setPatientLogin] = useState({});
@@ -42,6 +43,9 @@ function AddRdv() {
   const displayDoctors = () => {
 
     console.log("debyg",filteredDoctors)
+    if (filteredDoctors.length === 0) {
+      return <DataNotFound/>;
+    }
     return filteredDoctors.map((doctor) => (
       <Doctor
         key={doctor.firstName}

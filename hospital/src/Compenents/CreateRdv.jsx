@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import NavBar from "./NavBar";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LodingPage from "./LodingPage";
 import Cookies from "js-cookie";
 import axios from "axios";
@@ -57,7 +57,7 @@ function CreateRdv() {
 
     createRdv(appointmentData);
   };
-
+const navigate = useNavigate()
   async function createRdv(appointmentData) {
     try {
       // Make a POST request to your backend API endpoint to create a rdv
@@ -65,6 +65,9 @@ function CreateRdv() {
       
       // If the request is successful, return the response data
       console.log("Appointment created successfully", response.data);
+
+      const descrp = "Appointment created successfully at "+appointmentData.appointmentDateTime 
+      navigate(`/succesOperation/${descrp}`)
       
       return response.data;
     } catch (error) {

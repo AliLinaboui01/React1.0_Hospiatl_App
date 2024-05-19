@@ -1,6 +1,7 @@
 import React from "react";
 import Subscribe from "./Subscribe";
 
+import serv from "../assets/images/doctor-nurses-special-equipment.jpg"
 function OurService() {
   return (
     <div>
@@ -92,7 +93,7 @@ function OurService() {
               </div>
             </div>
             <img
-              src="https://img.freepik.com/free-photo/front-view-female-doctor-holding-stethoscope-with-copy-space_23-2148847617.jpg?t=st=1715440727~exp=1715444327~hmac=b75e5bf0258b132b7c18e62caf41639e603ee8ed6580e381ad58f790b3ef3ac7&w=996"
+              src={serv}
               alt="Product screenshot"
               className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
               width="2032"

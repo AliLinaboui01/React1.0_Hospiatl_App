@@ -45,6 +45,17 @@ function CardPatient({ patient }) {
           {patient.address}
         </p>
       </td>
+      <td className="p-4 border-b border-blue-gray-50">
+        <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+          {patient.telephone}
+        </p>
+      </td>
+      
+      <td className="p-4 border-b border-blue-gray-50">
+        <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
+          {patient.birthDate}
+        </p>
+      </td>
       <td className="p-4 border-b border-blue-gray-50 flex">
         <Link
           to={`/patient/update/${patient.id}`}
