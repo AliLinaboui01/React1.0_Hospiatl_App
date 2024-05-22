@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useReducer } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import imgLogin from "../../assets/images/happy-mature-woman-wheelchair-holding-hands-with-her-female-doctor-hospital-hallway-looking-camera.jpg";
-import NavBarAdmin from './NavBarAdmin';
+import { useNavigate} from 'react-router-dom'
+import imgLogin from "../assets/images/happy-mature-woman-wheelchair-holding-hands-with-her-female-doctor-hospital-hallway-looking-camera.jpg";
+import Cookies from "js-cookie";
+import NavBar from './NavBar';
+export default  function UpdatProfilePat() {
 
-function UpdatePatient() {
 
-
-    const {id} = useParams()
+    const id = Cookies.get("idUser")
     const navigate = useNavigate();
     // Initial form state
     let initState = {
@@ -93,10 +93,10 @@ function UpdatePatient() {
           }
         );
         console.log(response.data);
-        window.alert("Doctor updated successfully");
-        navigate("/alldoctors");
+        window.alert("Patient updated successfully");
+        navigate("/profilePatient");
       } catch (error) {
-        console.log("Error updating doctor:", error);
+        console.log("Error updating Patient:", error);
       }
     };
   
@@ -104,7 +104,7 @@ function UpdatePatient() {
 
 
     <>
-    <NavBarAdmin></NavBarAdmin>
+   <NavBar></NavBar>
    
     <div>
        
@@ -333,7 +333,7 @@ function UpdatePatient() {
                         onChange={handelChange}
                         autoComplete="email"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        
+                        required
                       />
                     </div>
                     
@@ -356,7 +356,7 @@ function UpdatePatient() {
                         onChange={handelChange}
                         autoComplete="email"
                         className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        
+                        required
                       />
                     </div>
                     
@@ -393,8 +393,8 @@ function UpdatePatient() {
         </div>
       </div>
     </div>
-    </>
+   </>
   )
 }
 
-export default UpdatePatient
+

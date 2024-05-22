@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import axios from "axios";
 
@@ -167,6 +167,9 @@ function ProfileUser() {
                       placeholder="Last Name"
                     />
                   </div>
+                  <>
+                  <Link to='/updateProfilePatient'>Update Profile</Link>
+                  </>
                 </div>
                 {/* "firstName": "walid",
     "lastName": "saidi",

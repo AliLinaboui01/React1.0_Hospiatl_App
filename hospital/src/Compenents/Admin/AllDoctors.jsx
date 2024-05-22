@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../NavBar";
 import NavBarAdmin from "./NavBarAdmin";
 import CardDoctors from "./CardDoctors";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function AllDoctors() {
 
@@ -14,9 +15,20 @@ function AllDoctors() {
     doctor.firstName.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const navigate = useNavigate()
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
+  useEffect(() => {
+    const id = Cookies.get("idUser");
+    const role = Cookies.get("roleUser")
+    console.log(id);
+    if (role !=="Admin") {
+      navigate('/unauth')
+    }else {
+      
+    }
+  }, []);
 
   useEffect(() => {
     getAllDoctorsBackend();
