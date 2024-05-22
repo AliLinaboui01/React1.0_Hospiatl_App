@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
 import CardPatient from "./CardPatient";
 import NavBarAdmin from "./NavBarAdmin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ShowRdvs from "./ShowRdvs";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function AllRdv() {
   const [allRdv, setAllRdv] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-
+  const navigate = useNavigate()
   useEffect(() => {
+  
+    const id = Cookies.get("idUser");
+    const role = Cookies.get("roleUser")
+    console.log(id);
+    if (role !=="Admin") {
+      navigate('/')
+    }else {
+      
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:5299/api/medicalService");
@@ -20,6 +29,7 @@ function AllRdv() {
     };
 
     fetchData();
+  }
   }, []);
 
   const filterRdvPatient = allRdv.filter((rdv) => {

@@ -24,7 +24,7 @@ function AllDoctors() {
     const role = Cookies.get("roleUser")
     console.log(id);
     if (role !=="Admin") {
-      navigate('/unauth')
+      navigate('/')
     }else {
       
     }

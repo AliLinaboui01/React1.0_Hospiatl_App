@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from "react";
 import CardPatient from "./CardPatient";
 import NavBarAdmin from "./NavBarAdmin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function AllPatient() {
   const [patient, setPatient] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-
+  const navigate = useNavigate()
   useEffect(() => {
+
+
+    const id = Cookies.get("idUser");
+    const role = Cookies.get("roleUser")
+    console.log(id);
+    if (role !=="Admin") {
+      navigate('/')
+    }else {
+      
+   
     const fetchPatients = async () => {
       try {
         const response = await axios.get('http://localhost:5299/api/patient');
@@ -19,6 +30,8 @@ function AllPatient() {
     };
 
     fetchPatients();
+
+  }
   }, []);
 
   const filterPatient = patient.filter((patient) => {

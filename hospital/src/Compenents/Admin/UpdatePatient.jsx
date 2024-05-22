@@ -3,12 +3,22 @@ import React, { useEffect, useReducer } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import imgLogin from "../../assets/images/happy-mature-woman-wheelchair-holding-hands-with-her-female-doctor-hospital-hallway-looking-camera.jpg";
 import NavBarAdmin from './NavBarAdmin';
-
+import Cookies from "js-cookie";
 function UpdatePatient() {
 
 
-    const {id} = useParams()
-    const navigate = useNavigate();
+const {id} = useParams()
+const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const id = Cookies.get("idUser");
+    const role = Cookies.get("roleUser")
+    console.log(id);
+    if (role !=="Admin") {
+      navigate('/404')
+    }
+  },[]);
     // Initial form state
     let initState = {
       firstName: "",

@@ -3,16 +3,18 @@ import RdvPatient from "./RdvPatient";
 import LodingPage from "./LodingPage";
 import axios from "axios";
 import Cookies from "js-cookie"; // Importing js-cookie library
+import { Navigate, useNavigate } from "react-router-dom";
 
 function RdvDeClient() {
   const [Rdv, setRdv] = useState([]);
   const [isRender, setIsRender] = useState(false);
   const [doctorRdv, setDoctorRdv] = useState(null);
-
+  const navigate = useNavigate()
   useEffect(() => {
     const fetchData = async () => {
       try {
         const userId = Cookies.get("idUser");
+        const role = Cookies.get("roleUser");
         if (userId) {
           const response = await axios.get(
             `http://localhost:5299/api/Rdv/patients/${userId}`
@@ -28,6 +30,8 @@ function RdvDeClient() {
           }
 
           setIsRender(true);
+        }else if(role !=="Patient"){
+           navigate('/')
         }
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -84,18 +88,7 @@ function RdvDeClient() {
             </div>
           )}
 
-          <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl m-5">
-            <div className="p-8">
-              <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-                RDV
-              </div>
-              <p className="block mt-1 text-lg leading-tight font-medium text-black">
-                RDV Date
-              </p>
-              <p className="mt-2 text-gray-500">RDV Description</p>
-              <p className="mt-2 text-gray-500">RDV Details...</p>
-            </div>
-          </div>
+         
 
           {displayRdv()}
         </>

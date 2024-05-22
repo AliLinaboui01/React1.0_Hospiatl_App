@@ -15,7 +15,7 @@ function ProfileUser() {
     if (id) {
       setidPatient(id);
       if (Cookies.get("roleUser") !== "Patient") {
-        navigate("/unauth");
+        navigate("/");
       }
     } else {
       console.log("role user", Cookies.get("roleUser"));

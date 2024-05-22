@@ -12,7 +12,7 @@ function Doctor({name ,lastname,img,specialite ,doctorId,PatientId}) {
     // src = {imgDoctor}
          src = {img}
          
-
+        
     alt="card-image" />
   </div>
   <div className="p-6">

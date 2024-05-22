@@ -3,11 +3,21 @@ import { useNavigate, useParams } from "react-router-dom";
 import imgLogin from "../../assets/images/beautiful-young-female-doctor-looking-camera-office (1).jpg";
 import axios from "axios";
 import NavBarAdmin from "./NavBarAdmin";
+import Cookies from "js-cookie";
 
 function UpdateDoctor() {
   const { id } = useParams();
   const navigate = useNavigate();
-  
+
+  useEffect(() => {
+    const id = Cookies.get("idUser");
+    const role = Cookies.get("roleUser")
+    console.log(id);
+    if (role !=="Admin") {
+      navigate('/404')
+    }
+  },[]);
+
   let initState = {
     firstName: "",
     lastName: "",

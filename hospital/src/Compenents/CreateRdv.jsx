@@ -21,10 +21,19 @@ function CreateRdv() {
   // Format dates to YYYY-MM-DD
   const minDate = today.toISOString().split("T")[0];
   const maxDate = oneWeekFromToday.toISOString().split("T")[0];
+ const [Doctor, setDoctor] = useState();
 
   useEffect(() => {
     console.log("patient : " + idpatient + " doctor id " + idcorotr);
-
+    axios
+    .get(`http://localhost:5299/api/doctor/${idcorotr}`)
+    .then((response) => {
+      setDoctor(response.data);
+      console.log("the doctor is :",response.data);
+    })
+    .catch((error) => {
+      console.error("Error fetching user data:", error);
+    });
     const timer = setTimeout(() => {
       setIsBlocked(true); // Lever le blocage après 30 secondes
     }, 1000); // 30 secondes en millisecondes
@@ -107,10 +116,15 @@ const navigate = useNavigate()
                       <h1 className="text-4xl sm:text-5xl text-gray-800 dark:text-white font-extrabold tracking-tight">
                         Confirm Reservation 
                       </h1>
-                      
                       <p className="text-normal text-lg font-medium text-gray-600 dark:text-gray-400 mt-2">
-                        Hospital Info :
+                        Doctor Info :
                       </p>
+                      <div
+                    class="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full  bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url(${Doctor.image})` }}
+                  >
+                    </div>
+                     
                       <div className="flex items-center mt-8 text-gray-600 dark:text-gray-400">
                         <svg
                           fill="none"
@@ -135,7 +149,7 @@ const navigate = useNavigate()
                           ></path>
                         </svg>
                         <div className="ml-4 text-md tracking-wide font-semibold w-90">
-                        Mohammed V Hospital, Avenue des FAR, Rabat, 10000
+                        {Doctor.address}
                         </div>
                       </div>
                       <div className="flex items-center mt-4 text-gray-600 dark:text-gray-400">
@@ -156,7 +170,7 @@ const navigate = useNavigate()
                           ></path>
                         </svg>
                         <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                          +44 1234567890
+                          {Doctor.telephone}
                         </div>
                       </div>
                       <div className="flex items-center mt-2 text-gray-600 dark:text-gray-400">
@@ -177,7 +191,7 @@ const navigate = useNavigate()
                           ></path>
                         </svg>
                         <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                          hospital.chifa2@acme.org
+                        {Doctor.email}
                         </div>
                       </div>
                     </div>

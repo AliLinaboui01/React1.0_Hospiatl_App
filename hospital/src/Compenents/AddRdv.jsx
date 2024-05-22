@@ -16,11 +16,12 @@ function AddRdv() {
 
   useEffect(() => {
     const id = Cookies.get("idUser");
+    const role = Cookies.get("roleUser");
     console.log(id);
-    if (id) {
+    if (id && role==="Patient") {
       setIdPatient(id);
     }else {
-      navigate('/unauth')
+      navigate('/')
     }
   }, []);
   const [allDoctords, setAllDoctords] = useState([{}]);

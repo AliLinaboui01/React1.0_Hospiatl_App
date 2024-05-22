@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import OurService from "./OurService";
 import Footer from "./Footer";
 import SubsClinet from "./SubsClinet";
+import Cookies from "js-cookie";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -16,7 +17,16 @@ const navigation = [
 
 export default function Dashboorduser() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const navigate = useNavigate()
+  useEffect(() => {
+   
+    const role = Cookies.get("roleUser");
+    if (role==="Patient") {
+      
+    }else {
+      navigate('/')
+    }
+  }, []);
   return (
     <div className="bg-white">
       <header className="absolute inset-x-0 top-0 z-50">
