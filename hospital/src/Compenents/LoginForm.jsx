@@ -77,7 +77,7 @@ export default function LoginForm() {
         "focus:outline-none",
         "py-2",
         "pr-2",
-        "pl-12",
+        
         "border-red-500"
       );
  setError(true)

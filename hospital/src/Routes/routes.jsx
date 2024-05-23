@@ -21,6 +21,7 @@ import UpdatePatient from "../Compenents/Admin/UpdatePatient";
 import SuccessOp from "../Compenents/SuccessOp";
 import PatientInfo from "../Compenents/Doctor/PatientInfo";
 import UpdatProfilePat from "../Compenents/UpdateProfilePat";
+import Home from "../Compenents/Doctor/Home";
 
 
 
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
     {
       path: "/createDoctor",
       element: <CreateDoctor />,
+    },
+    {
+      path: "/home/doctor",
+      element: <Home/>,
     },
     {
       path: "/createPatient",

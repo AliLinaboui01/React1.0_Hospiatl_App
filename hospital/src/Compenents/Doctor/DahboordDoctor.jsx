@@ -72,7 +72,7 @@ const navigate = useNavigate()
             <small class="text-center text-xs font-medium"> My Tasks </small>
           </Link>
           <Link
-            to="/profileDoctor"
+            to="/home/doctor"
             class="flex h-16 w-16 flex-col items-center justify-center gap-1 text-fuchsia-900 dark:text-gray-400"
           >
             <svg

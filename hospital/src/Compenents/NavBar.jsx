@@ -9,8 +9,9 @@ export default function NavBar() {
       Cookies.remove('idUser');
       Cookies.remove('Token');
       Cookies.remove('userName');
-      Cookies.remove('idUser');
-     
+      Cookies.remove('roleUser');
+
+    
       navigate('/')
     }
   }
