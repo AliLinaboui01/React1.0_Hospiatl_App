@@ -108,7 +108,7 @@ function Register() {
                   Register
                 </h2>
                 <p className="mt-2 text-lg leading-8 text-gray-600">
-                  Aute magna irure deserunt veniam aliqua magna enim voluptate.
+                  Welcome! Thanks for signing up and making a difference!
                 </p>
               </div>
               <form
@@ -248,7 +248,7 @@ function Register() {
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label htmlFor="gender-male" className="block text-sm font-medium leading-6 text-gray-900">
-                        Homme
+                        Male
                       </label>
                     </div>
                     <div className="flex items-center mx-2 gap-x-3">
@@ -262,13 +262,13 @@ function Register() {
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label htmlFor="gender-female" className="block text-sm font-medium leading-6 text-gray-900">
-                        Famme
+                        Female
                       </label>
                     </div>
                   </div>
                   <div className="sm:col-span-2">
                     <label htmlFor="birthDate" className="block text-sm font-semibold leading-6 text-gray-900">
-                      Date de naissance
+                      BirthDate
                     </label>
                     <div className="mt-2.5">
                       <input

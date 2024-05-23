@@ -287,7 +287,7 @@ function UpdateDoctor() {
                         htmlFor="gender-male"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Homme
+                        Male
                       </label>
                     </div>
                     <div className="flex items-center mx-2 gap-x-3">
@@ -305,7 +305,7 @@ function UpdateDoctor() {
                         htmlFor="gender-female"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Femme
+                        Female
                       </label>
                     </div>
                   </div>
@@ -337,7 +337,7 @@ function UpdateDoctor() {
                       htmlFor="dateHiring"
                       className="block text-sm font-semibold leading-6 text-gray-900"
                     >
-                      Date d'hiring
+                      hiring Date
                     </label>
                     <div className="mt-2.5">
                       <input
@@ -377,7 +377,7 @@ function UpdateDoctor() {
                     type="submit"
                     className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    Register
+                    Update
                   </button>
                   <button
                     type="button"

@@ -30,7 +30,7 @@ function AddRdv() {
     
     const timer = setTimeout(() => {
       setIsBlocked(true);
-    }, 3000);
+    }, 1000);
     
     return () => clearTimeout(timer);
   }, []);

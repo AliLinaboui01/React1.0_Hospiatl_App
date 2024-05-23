@@ -4,17 +4,7 @@ import { Link } from "react-router-dom";
 function Task({ task, key }) {
   return (
     <div>
-      {/* [
-  {
-    "appointmentDateTime": "2024-05-24T09:03:00",
-    "reason": "fivre",
-    "patientId": "d8c7c8c2-29d4-44d6-aac8-3ec861c5548e",
-    "doctorId": "490ae3f0-204f-4c25-89a0-18e10fd94693",
-    "patientName": "walid adami",
-    "doctorName": "walid  Aissaoui",
-    "patientImage": "http://localhost:5299/Uploads/Patients43d2271a-f28c-42a3-8c24-5d6f4d3947ae.jpg",
-    "doctorImage": "http://localhost:5299/Uploads/Doctors/7e62ebff-bd0c-49ef-ba14-66b0e536576c.jpg"
-  }, */}
+    
       <div class="flex flex-col" key={key}>
         <div class="bg-white shadow-md  rounded-3xl p-4">
           <div class="flex-none lg:flex">
@@ -79,11 +69,12 @@ function Task({ task, key }) {
               </div>
               <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
               <div class="flex space-x-3 text-sm font-medium">
-                <div class="flex-auto flex space-x-3">
-                  <button class="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 ">
+                <div class="flex-auto flex space-x-3 ">
+                  {/* <button class="mb-2 md:mb-0 bg-white px-4 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full hover:bg-gray-100 inline-flex items-center space-x-2 ">
                     <span class="text-green-400 hover:text-green-500 rounded-lg"></span>
-                    <span> reason : {task.reason}</span>
-                  </button>
+                    <span className=""> reason : {task.reason}</span>
+                  </button> */}
+                  <textarea name=""  id="">{task.reason}</textarea>
                 </div>
                 <Link
                   to={`/patientInfo/${task.patientId}`}

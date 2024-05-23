@@ -56,7 +56,7 @@ export default function NavBar() {
                 tabindex="-1"
                 id="user-menu-item-0"
               >
-                Your Rende-vous
+                Your Rdvs
               </Link>
               <a
               onClick={logout}

@@ -58,7 +58,7 @@ export default function LoginForm() {
       } else if (roleUser === "Admin") {
         navigate("/alldoctors");
       } else if (roleUser === "Doctor") {
-        navigate("/profileDoctor");
+        navigate("/home/doctor");
       }
       return roleUser;
     } catch (error) {

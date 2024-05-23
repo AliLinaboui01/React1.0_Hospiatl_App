@@ -136,9 +136,9 @@ const navigate = useNavigate();
                 -{state.lastName}
                 </h2>
                 <p className="mt-2 text-lg leading-8 text-gray-600">
-                  Aute magna irure deserunt veniam aliqua magna enim voluptate.
+                  update your information below to ensure our records are accurate and up-to-date
                 </p>
-                <img class="w-32 h-32 rounded-full mx-auto" src={state.image} alt="Profile picture"/>
+                <img className="w-32 h-32 rounded-full mx-auto" src={state.image} alt="Profile picture"/>
 
               </div>
               <form
@@ -305,7 +305,7 @@ const navigate = useNavigate();
                         htmlFor="push-everything"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Homme
+                        Male
                       </label>
                     </div>
                     <div className="flex items-center  mx-2 gap-x-3">
@@ -322,7 +322,7 @@ const navigate = useNavigate();
                         htmlFor="push-email"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Famme
+                        Female
                       </label>
                     </div>
                   </div>
@@ -332,7 +332,7 @@ const navigate = useNavigate();
                       htmlFor="email"
                       className="block text-sm font-semibold leading-6 text-gray-900"
                     >
-                      date naissance
+                      birthDate
                     </label>
                     <div className="mt-2.5">
                       <input
@@ -377,7 +377,7 @@ const navigate = useNavigate();
                     type="submit"
                     className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    Register
+                    Update
                   </button>
                   <button
                     type="button"
